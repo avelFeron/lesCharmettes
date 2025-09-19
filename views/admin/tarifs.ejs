@@ -1,0 +1,62 @@
+<section class="admin-section">
+  <h1>Modifier les tarifs</h1>
+  <p class="admin-intro">Seuls les montants sont modifiables. Utilisez un point ou une virgule pour les decimales.</p>
+
+  <% if (success) { %>
+    <div class="admin-notice admin-notice--success">Les tarifs ont ete mis a jour.</div>
+  <% } %>
+
+  <% if (errors && errors.length) { %>
+    <div class="admin-notice admin-notice--error">Certaines valeurs doivent etre corrigees.</div>
+  <% } %>
+
+  <form method="post" class="admin-form">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th scope="col">Offre</th>
+          <th scope="col">Prix actuel</th>
+          <th scope="col">Nouveau prix</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% tarifs.forEach((tarif) => { %>
+          <% const rowError = errors.find((item) => item.id === tarif.id); %>
+          <% let errorText = ''; %>
+          <% if (rowError && (rowError.type === 'missing' || rowError.type === 'empty')) { errorText = 'Veuillez saisir un prix.'; } %>
+          <% if (rowError && rowError.type === 'invalid') { errorText = 'Entrez un nombre positif.'; } %>
+          <tr class="admin-table__row<%= rowError ? ' has-error' : '' %>">
+            <th scope="row">
+              <div class="admin-table__title"><%= tarif.title %></div>
+              <div class="admin-table__subtitle"><%= tarif.tagline %></div>
+            </th>
+            <td>
+              <span class="admin-table__value"><%= tarif.price %> <%= tarif.unit %></span>
+            </td>
+            <td>
+              <label class="admin-field">
+                <span class="sr-only">Nouveau prix pour <%= tarif.title %></span>
+                <input
+                  type="number"
+                  step="0.01"
+                  min="0"
+                  inputmode="decimal"
+                  name="prices[<%= tarif.id %>]"
+                  value="<%= typeof formValues[tarif.id] !== 'undefined' ? formValues[tarif.id] : '' %>"
+                  required
+                />
+              </label>
+              <% if (errorText) { %>
+                <p class="admin-field__error"><%= errorText %></p>
+              <% } %>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <div class="admin-actions">
+      <button type="submit" class="admin-button">Enregistrer</button>
+    </div>
+  </form>
+</section>

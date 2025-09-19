@@ -10,6 +10,7 @@ const expressLayouts = require('express-ejs-layouts');
 const { PORT, SITE_NAME, CONTACT_EMAIL } = require('./config');
 const siteRoutes = require('./routes/siteRoutes');
 const apiRoutes = require('./routes/apiRoutes');
+const adminRoutes = require('./routes/adminRoutes');
 
 const app = express();
 
@@ -47,6 +48,7 @@ app.use((req, res, next) => {
 
 app.use('/', siteRoutes);
 app.use('/api', apiRoutes);
+app.use('/admin', adminRoutes);
 
 app.use((req, res) => {
   if (req.accepts('json')) {
@@ -68,4 +70,5 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Les Charmettes est disponible sur http://localhost:${PORT}`);
 });
+
 

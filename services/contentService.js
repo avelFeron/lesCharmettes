@@ -30,12 +30,25 @@ async function readJson(fileName) {
   return json;
 }
 
+async function writeJson(fileName, data) {
+  const filePath = path.join(DATA_DIR, fileName);
+  const payload = `${JSON.stringify(data, null, 2)}\n`;
+  await fs.writeFile(filePath, payload, 'utf8');
+  const stats = await fs.stat(filePath);
+  dataCache.set(filePath, { mtimeMs: stats.mtimeMs, data });
+  return data;
+}
+
 function clearCache() {
   dataCache.clear();
 }
 
 async function getTarifs() {
   return readJson('tarifs.json');
+}
+
+async function updateTarifs(tarifs) {
+  return writeJson('tarifs.json', tarifs);
 }
 
 async function getArticles() {
@@ -48,9 +61,10 @@ async function getEquipe() {
 
 module.exports = {
   getTarifs,
+  updateTarifs,
   getArticles,
   getEquipe,
   readJson,
+  writeJson,
   clearCache
 };
-
