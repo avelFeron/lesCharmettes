@@ -1,0 +1,27 @@
+<% if (!article) { %>
+  <section class="section section-intro">
+    <div class="section-content">
+      <h1>Article introuvable</h1>
+      <p>Le contenu que vous recherchez n'existe plus ou a été déplacé.</p>
+      <a class="button" href="/">Retour à l'accueil</a>
+    </div>
+  </section>
+<% } else { %>
+  <article class="section section-article">
+    <header class="article-header">
+      <span class="article-date"><%= new Date(article.publishedAt).toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' }) %></span>
+      <h1><%= article.title %></h1>
+      <% if (article.image) { %>
+        <img class="article-hero" src="/images/<%= article.image %>" alt="<%= article.title %>" />
+      <% } %>
+    </header>
+    <div class="article-body">
+      <% article.content.forEach((paragraph) => { %>
+        <p><%= paragraph %></p>
+      <% }) %>
+    </div>
+    <footer class="article-footer">
+      <a class="article-link" href="/">Revenir à l'accueil</a>
+    </footer>
+  </article>
+<% } %>

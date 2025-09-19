@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="article3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8ac6d0" />
+      <stop offset="100%" stop-color="#f5a623" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#article3)" />
+  <text x="100" y="320" fill="#ffffff" font-size="64" font-family="Segoe UI, sans-serif" font-weight="600">Animations d'automne</text>
+</svg>

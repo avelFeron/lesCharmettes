@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="article2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4f6d7a" />
+      <stop offset="100%" stop-color="#8ac6d0" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#article2)" />
+  <text x="100" y="320" fill="#ffffff" font-size="68" font-family="Segoe UI, sans-serif" font-weight="600">Jardin sensoriel</text>
+</svg>

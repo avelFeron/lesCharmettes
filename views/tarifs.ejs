@@ -1,0 +1,32 @@
+<section class="section section-header-only">
+  <div class="section-header">
+    <h1>Nos tarifs et formules</h1>
+    <p>Tous nos tarifs incluent l'hébergement, la restauration, l'animation quotidienne et la coordination des soins.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="cards-grid">
+    <% tarifs.forEach((tarif) => { %>
+      <article class="card card-detailed">
+        <header>
+          <h2><%= tarif.title %></h2>
+          <p class="card-tagline"><%= tarif.tagline %></p>
+          <p class="card-price">
+            <strong><%= tarif.price %></strong>
+            <span><%= tarif.unit %></span>
+          </p>
+        </header>
+        <p><%= tarif.description %></p>
+        <ul class="card-list">
+          <% tarif.services.forEach((service) => { %>
+            <li><%= service %></li>
+          <% }) %>
+        </ul>
+        <footer>
+          <p class="card-note">Contactez-nous pour un devis personnalisé et les aides financières possibles.</p>
+        </footer>
+      </article>
+    <% }) %>
+  </div>
+</section>

@@ -1,0 +1,93 @@
+<section class="section section-contact-form">
+  <div class="section-header">
+    <h1>Contactez-nous</h1>
+    <p>Parlez-nous de votre projet, nous vous répondrons sous 24 heures ouvrées.</p>
+  </div>
+
+  <% if (typeof success !== 'undefined' && success) { %>
+    <div class="alert alert-success">Merci pour votre message. Nous vous recontacterons très prochainement.</div>
+  <% } %>
+
+  <% if (typeof error !== 'undefined') { %>
+    <div class="alert alert-error"><%= error %></div>
+  <% } %>
+
+  <form id="contact-form" class="form" method="post" action="/contact">
+    <div class="form-field">
+      <label for="name">Nom et prénom*</label>
+      <input id="name" name="name" type="text" required value="<%= formData && formData.name ? formData.name : '' %>" />
+    </div>
+    <div class="form-field">
+      <label for="email">Email*</label>
+      <input id="email" name="email" type="email" required value="<%= formData && formData.email ? formData.email : '' %>" />
+    </div>
+    <div class="form-field">
+      <label for="phone">Téléphone</label>
+      <input id="phone" name="phone" type="tel" value="<%= formData && formData.phone ? formData.phone : '' %>" />
+    </div>
+    <div class="form-field">
+      <label for="message">Votre message*</label>
+      <textarea id="message" name="message" rows="5" required><%= formData && formData.message ? formData.message : '' %></textarea>
+    </div>
+    <div class="form-actions">
+      <button class="button" type="submit">Envoyer</button>
+    </div>
+  </form>
+</section>
+
+<section class="section section-info">
+  <div class="info-block">
+    <h2>Nous rencontrer</h2>
+    <p>12 rue des Tilleuls · 69007 Lyon</p>
+    <p>Visites du lundi au samedi de 9h à 18h sur rendez-vous.</p>
+  </div>
+  <div class="info-block">
+    <h2>Par téléphone</h2>
+    <p>Accueil : 04 72 00 00 00</p>
+    <p>Urgences famille : 06 12 34 56 78</p>
+  </div>
+</section>
+
+<script>
+  (function () {
+    const form = document.getElementById('contact-form');
+    if (!form) {
+      return;
+    }
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const submitButton = form.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          const data = await response.json().catch(() => ({ error: 'Une erreur est survenue.' }));
+          throw new Error(data.error || 'Une erreur est survenue.');
+        }
+
+        form.reset();
+        const successNode = document.createElement('div');
+        successNode.className = 'alert alert-success';
+        successNode.textContent = 'Merci pour votre message. Nous vous recontacterons très prochainement.';
+        form.replaceWith(successNode);
+      } catch (error) {
+        const alert = document.createElement('div');
+        alert.className = 'alert alert-error';
+        alert.textContent = error.message;
+        form.prepend(alert);
+      } finally {
+        submitButton.disabled = false;
+      }
+    });
+  }());
+</script>

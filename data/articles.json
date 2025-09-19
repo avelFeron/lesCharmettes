@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "semaine-du-gout-2025",
+    "title": "Retour sur la Semaine du Goût",
+    "excerpt": "Ateliers culinaires, dégustations et rencontres avec les producteurs locaux.",
+    "publishedAt": "2025-09-08",
+    "image": "article-semaine-gout.svg",
+    "content": [
+      "Durant toute la semaine, notre chef Damien a proposé des menus inspirés des souvenirs gustatifs des résidents.",
+      "Les élèves du lycée hôtelier voisin sont venus cuisiner et partager un repas d'exception autour des produits du terroir.",
+      "Un grand merci à nos partenaires maraîchers et fromagers qui ont offert des dégustations riches en échanges."
+    ]
+  },
+  {
+    "slug": "ouverture-jardin-sensoriel",
+    "title": "Ouverture de notre jardin sensoriel",
+    "excerpt": "Une promenade immersive pensée pour éveiller les sens et favoriser la détente.",
+    "publishedAt": "2025-06-21",
+    "image": "article-jardin-sensoriel.svg",
+    "content": [
+      "Le jardin sensoriel est désormais accessible librement, avec des zones thématiques autour des senteurs, des textures et des couleurs.",
+      "Une équipe de bénévoles jardiniers accompagne les résidents dans la création d'un potager partagé.",
+      "Ce nouvel espace favorise la stimulation cognitive et offre un lieu de rencontre apaisant pour les familles."
+    ]
+  },
+  {
+    "slug": "programme-animation-automne",
+    "title": "Les animations de l'automne",
+    "excerpt": "Sport adapté, sorties culturelles et concerts intimistes : découvrez notre agenda.",
+    "publishedAt": "2025-08-28",
+    "image": "article-animations-automne.svg",
+    "content": [
+      "Chaque mardi, une séance de gymnastique douce est encadrée par notre kinésithérapeute.",
+      "Nous avons prévu deux sorties au musée des Beaux-Arts ainsi qu'une après-midi cinéma intergénérationnelle.",
+      "La chorale des Charmettes se produira le 15 octobre pour un concert ouvert aux familles."
+    ]
+  }
+]

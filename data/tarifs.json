@@ -1,0 +1,67 @@
+[
+  {
+    "id": "sejour-decouverte",
+    "title": "Séjour Découverte",
+    "tagline": "1 à 2 semaines pour découvrir Les Charmettes",
+    "price": 980,
+    "unit": "€ / semaine",
+    "description": "Idéal pour apprivoiser la vie en résidence et profiter d'un accompagnement sur mesure.",
+    "services": [
+      "Accompagnement personnalisé à l'arrivée",
+      "Animations quotidiennes et sorties hebdomadaires",
+      "Suivi médical et paramédical continu"
+    ]
+  },
+  {
+    "id": "long-sejour-confort",
+    "title": "Long Séjour Confort",
+    "tagline": "Le choix le plus plébiscité par nos résidents",
+    "price": 2420,
+    "unit": "€ / mois",
+    "description": "Une chambre individuelle lumineuse, des repas gourmands et un programme d'activités riche.",
+    "services": [
+      "Chambre individuelle avec salle d'eau privative",
+      "Restauration préparée sur place par notre chef",
+      "Présence infirmière 24h/24"
+    ]
+  },
+  {
+    "id": "long-sejour-serenite",
+    "title": "Long Séjour Sérénité",
+    "tagline": "Pour les besoins d'accompagnement renforcé",
+    "price": 2780,
+    "unit": "€ / mois",
+    "description": "Un encadrement spécialisé pour les troubles cognitifs et la grande dépendance.",
+    "services": [
+      "Unité protégée dédiée",
+      "Approche Montessori adaptée",
+      "Kinésithérapeute et psychomotricienne dédiées"
+    ]
+  },
+  {
+    "id": "accueil-de-jour",
+    "title": "Accueil de jour",
+    "tagline": "Du lundi au vendredi, de 9h à 17h",
+    "price": 65,
+    "unit": "€ / jour",
+    "description": "Pour maintenir le lien social et soulager les aidants, avec transport possible.",
+    "services": [
+      "Prise en charge du transport domicile-résidence",
+      "Ateliers mémoire, art-thérapie et gymnastique douce",
+      "Déjeuner convivial et collation"
+    ]
+  },
+  {
+    "id": "hebergement-temporaire",
+    "title": "Hébergement temporaire",
+    "tagline": "De 1 semaine à 3 mois selon vos besoins",
+    "price": 95,
+    "unit": "€ / jour",
+    "description": "Une solution flexible pour les convalescences ou les absences des aidants.",
+    "services": [
+      "Suivi infirmier et coordination médicale",
+      "Animations à la carte",
+      "Blanchisserie et entretien du linge personnel"
+    ]
+  }
+]

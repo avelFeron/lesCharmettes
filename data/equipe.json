@@ -1,0 +1,81 @@
+{
+  "sections": [
+    {
+      "id": "direction",
+      "title": "Direction & Accueil",
+      "description": "Un binôme attentif qui accompagne résidents et familles dès la première visite.",
+      "members": [
+        {
+          "name": "Claire Dubois",
+          "role": "Directrice",
+          "bio": "15 ans d'expérience dans la gérontologie sociale et la coordination d'équipes pluridisciplinaires.",
+          "photo": "team-direction-claire.jpg"
+        },
+        {
+          "name": "Yanis Morel",
+          "role": "Responsable accueil & administratif",
+          "bio": "Votre interlocuteur dédié pour les démarches d'admission et les rendez-vous.",
+          "photo": "team-direction-yanis.jpg"
+        }
+      ]
+    },
+    {
+      "id": "medical",
+      "title": "Équipe soignante",
+      "description": "Présence 24h/24 pour une sérénité totale.",
+      "members": [
+        {
+          "name": "Dr Sofia Lemaire",
+          "role": "Médecin coordonnateur",
+          "bio": "Spécialiste mémoire et maladies neurodégénératives, elle pilote le projet de soins.",
+          "photo": "team-medical-sofia.jpg"
+        },
+        {
+          "name": "Inès Giraud",
+          "role": "Cadre de santé",
+          "bio": "Anime une équipe de 12 infirmiers et aides-soignants, avec un suivi personnalisé.",
+          "photo": "team-medical-ines.jpg"
+        }
+      ]
+    },
+    {
+      "id": "accompagnement",
+      "title": "Animation & vie sociale",
+      "description": "Chaque journée est rythmée par des activités adaptées aux envies de chacun.",
+      "members": [
+        {
+          "name": "Léo Perrin",
+          "role": "Animateur artistique",
+          "bio": "Ateliers peinture, musicothérapie et sorties culturelles au programme chaque semaine.",
+          "photo": "team-animation-leo.jpg"
+        },
+        {
+          "name": "Nora Benali",
+          "role": "Psychologue clinicienne",
+          "bio": "Accompagne les résidents et les familles pour préserver l'équilibre émotionnel.",
+          "photo": "team-animation-nora.jpg"
+        }
+      ]
+    }
+  ],
+  "values": [
+    {
+      "title": "Respect",
+      "description": "Une attention portée aux habitudes de vie et au rythme de chacun."
+    },
+    {
+      "title": "Bienveillance",
+      "description": "Des équipes formées à la relation et à la communication non-verbale."
+    },
+    {
+      "title": "Ouverture",
+      "description": "Des partenariats avec les associations locales et les écoles du quartier."
+    }
+  ],
+  "atouts": [
+    "Jardin sensoriel et potager thérapeutique",
+    "Cuisine maison avec produits locaux",
+    "Espace famille disponible 7j/7",
+    "Navette privée pour les sorties et visites"
+  ]
+}

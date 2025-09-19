@@ -1,0 +1,44 @@
+<section class="section section-intro">
+  <div class="section-content">
+    <h1>Vivre aux Charmettes</h1>
+    <p>
+      Construit en 2015, l'établissement a été pensé avec les familles et les associations locales pour proposer
+      des espaces conviviaux, lumineux et sécurisants. Les chambres sont personnalisables et ouvrent sur le jardin.
+    </p>
+  </div>
+</section>
+
+<section class="section section-two-columns">
+  <div>
+    <h2>Une journée type</h2>
+    <ul class="list-highlight">
+      <li>Petit-déjeuner en salle panoramique et revue de presse.</li>
+      <li>Ateliers mémoire, art-thérapie ou gym douce selon les envies.</li>
+      <li>Déjeuner gastronomique préparé sur place, avec menu de substitution.</li>
+      <li>Temps de repos ou activités individuelles accompagnées.</li>
+      <li>Goûter en terrasse, suivi d'animations culturelles ou musicales.</li>
+    </ul>
+  </div>
+  <div>
+    <h2>Nos valeurs</h2>
+    <ul class="list-highlight">
+      <% equipe.values.forEach((value) => { %>
+        <li>
+          <strong><%= value.title %></strong>
+          <span><%= value.description %></span>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</section>
+
+<section class="section section-atouts">
+  <div class="section-header">
+    <h2>Les atouts à partager en famille</h2>
+  </div>
+  <div class="chips">
+    <% equipe.atouts.forEach((atout) => { %>
+      <span class="chip"><%= atout %></span>
+    <% }) %>
+  </div>
+</section>

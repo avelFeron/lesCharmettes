@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= pageTitle ? pageTitle + ' · ' : '' %><%= siteName %></title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="topbar">
+        <div class="logo">
+          <span class="logo-mark">LC</span>
+          <span class="logo-text"><%= siteName %></span>
+        </div>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="main-navigation"
+          data-menu-toggle
+        >
+          <span class="menu-icon" aria-hidden="true"></span>
+          <span class="menu-label">Menu</span>
+        </button>
+        <nav id="main-navigation" class="main-nav" aria-label="Navigation principale" data-menu>
+          <% navigation.forEach((item) => { %>
+            <a href="<%= item.href %>" class="nav-link<%= currentPath === item.href ? ' is-active' : '' %>"><%= item.label %></a>
+          <% }) %>
+        </nav>
+        <div class="topbar-contact" data-menu>
+          <a href="mailto:<%= contactEmail %>" class="contact-link">Contact : <%= contactEmail %></a>
+          <span class="contact-phone">04 72 00 00 00</span>
+        </div>
+      </div>
+    </header>
+
+    <% if (typeof heroImages !== 'undefined' && heroImages.length) { %>
+      <section class="hero" role="banner">
+        <div class="hero-carousel" data-carousel>
+          <% heroImages.forEach((image, idx) => { %>
+            <div class="hero-slide<%= idx === 0 ? ' is-active' : '' %>" style="background-image: url('/images/<%= image %>');">
+              <div class="hero-overlay">
+                <p class="hero-tagline">Être bien entouré au quotidien</p>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+        <div class="hero-indicators" data-carousel-indicators>
+          <% heroImages.forEach((_, idx) => { %>
+            <button type="button" class="hero-indicator<%= idx === 0 ? ' is-active' : '' %>" aria-label="Diapositive <%= idx + 1 %>"></button>
+          <% }) %>
+        </div>
+      </section>
+    <% } %>
+
+    <main class="content">
+      <%- body %>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong><%= siteName %></strong><br />
+        12 rue des Tilleuls · 69007 Lyon<br />
+        Tél : 04 72 00 00 00 · <a href="mailto:<%= contactEmail %>"><%= contactEmail %></a>
+      </div>
+      <div>
+        <p>Visites sur rendez-vous du lundi au samedi.</p>
+        <p class="footer-small">© <%= new Date().getFullYear() %> <%= siteName %>. Tous droits réservés.</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        const header = document.querySelector('.site-header');
+        const toggle = document.querySelector('[data-menu-toggle]');
+        const menus = Array.from(document.querySelectorAll('[data-menu]'));
+
+        if (header && toggle && menus.length) {
+          const mq = window.matchMedia('(min-width: 769px)');
+
+          const closeMenu = () => {
+            header.classList.remove('is-menu-open');
+            toggle.setAttribute('aria-expanded', 'false');
+          };
+
+          toggle.addEventListener('click', () => {
+            const isOpen = header.classList.toggle('is-menu-open');
+            toggle.setAttribute('aria-expanded', String(isOpen));
+          });
+
+          mq.addEventListener('change', (event) => {
+            if (event.matches) {
+              closeMenu();
+            }
+          });
+
+          menus.forEach((menu) => {
+            menu.querySelectorAll('a').forEach((link) => {
+              link.addEventListener('click', () => {
+                if (!mq.matches) {
+                  closeMenu();
+                }
+              });
+            });
+          });
+        }
+
+        const carousel = document.querySelector('[data-carousel]');
+        if (!carousel) {
+          return;
+        }
+
+        const slides = Array.from(carousel.querySelectorAll('.hero-slide'));
+        const indicatorsContainer = document.querySelector('[data-carousel-indicators]');
+        const indicators = indicatorsContainer ? Array.from(indicatorsContainer.children) : [];
+        let index = 0;
+
+        function showSlide(nextIndex) {
+          slides[index].classList.remove('is-active');
+          if (indicators[index]) {
+            indicators[index].classList.remove('is-active');
+          }
+
+          index = nextIndex;
+          slides[index].classList.add('is-active');
+          if (indicators[index]) {
+            indicators[index].classList.add('is-active');
+          }
+        }
+
+        function nextSlide() {
+          const nextIndex = (index + 1) % slides.length;
+          showSlide(nextIndex);
+        }
+
+        const interval = setInterval(nextSlide, 6000);
+        indicators.forEach((button, buttonIndex) => {
+          button.addEventListener('click', () => {
+            clearInterval(interval);
+            showSlide(buttonIndex);
+          });
+        });
+      }());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<section class="section section-intro">
+  <div class="section-content">
+    <h1>Votre maison de retraite au cœur de Lyon</h1>
+    <p>
+      Les Charmettes accueillent les résidents dans un cadre lumineux, entouré de jardins, avec une équipe
+      présente 24h/24. Notre mission : préserver l'autonomie, encourager les liens sociaux et rassurer les familles.
+    </p>
+  </div>
+</section>
+
+<section class="section section-tarifs">
+  <div class="section-header">
+    <h2>Des formules transparentes</h2>
+    <p>Choisissez l'accompagnement le mieux adapté à vos besoins.</p>
+  </div>
+  <div class="cards-grid">
+    <% highlightTarifs.forEach((tarif) => { %>
+      <article class="card">
+        <h3><%= tarif.title %></h3>
+        <p class="card-tagline"><%= tarif.tagline %></p>
+        <p class="card-price">
+          <strong><%= tarif.price %></strong>
+          <span><%= tarif.unit %></span>
+        </p>
+        <p><%= tarif.description %></p>
+        <ul class="card-list">
+          <% tarif.services.forEach((service) => { %>
+            <li><%= service %></li>
+          <% }) %>
+        </ul>
+      </article>
+    <% }) %>
+  </div>
+  <div class="section-cta">
+    <a class="button" href="/tarifs">Voir tous nos tarifs</a>
+  </div>
+</section>
+
+<section class="section section-articles">
+  <div class="section-header">
+    <h2>La vie aux Charmettes</h2>
+    <p>Rencontrez notre équipe, découvrez nos animations et l'actualité de la résidence.</p>
+  </div>
+  <div class="articles-grid">
+    <% latestArticles.forEach((article) => { %>
+      <article class="article-teaser">
+        <div class="article-meta">
+          <span class="article-date"><%= new Date(article.publishedAt).toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' }) %></span>
+        </div>
+        <h3><a href="/articles/<%= article.slug %>"><%= article.title %></a></h3>
+        <p><%= article.excerpt %></p>
+        <a class="article-link" href="/articles/<%= article.slug %>">Lire la suite</a>
+      </article>
+    <% }) %>
+  </div>
+</section>
+
+<section class="section section-contact">
+  <div class="section-content">
+    <h2>Visitez Les Charmettes</h2>
+    <p>
+      Prenez rendez-vous pour une visite personnalisée. Nous répondrons à toutes vos questions et organiserons
+      un moment de rencontre avec notre équipe.
+    </p>
+    <a class="button" href="/contact">Prendre contact</a>
+  </div>
+</section>

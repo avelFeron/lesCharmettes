@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="article1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5a623" />
+      <stop offset="100%" stop-color="#8ac6d0" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#article1)" />
+  <text x="100" y="320" fill="#ffffff" font-size="72" font-family="Segoe UI, sans-serif" font-weight="600">Semaine du Goût</text>
+</svg>

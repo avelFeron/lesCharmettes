@@ -1,0 +1,39 @@
+<section class="section section-header-only">
+  <div class="section-header">
+    <h1>Une équipe pluridisciplinaire</h1>
+    <p>Les Charmettes réunissent des professionnels engagés, formés au grand âge et au prendre soin.</p>
+  </div>
+</section>
+
+<section class="section section-team">
+  <% equipe.sections.forEach((section) => { %>
+    <article class="team-section">
+      <header>
+        <h2><%= section.title %></h2>
+        <p><%= section.description %></p>
+      </header>
+      <div class="team-grid">
+        <% section.members.forEach((member) => { %>
+          <div class="team-card">
+            <div class="team-photo" aria-hidden="true">
+              <span><%= member.name.split(' ').map((part) => part.charAt(0)).join('') %></span>
+            </div>
+            <div>
+              <h3><%= member.name %></h3>
+              <p class="team-role"><%= member.role %></p>
+              <p class="team-bio"><%= member.bio %></p>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </article>
+  <% }) %>
+</section>
+
+<section class="section section-contact">
+  <div class="section-content">
+    <h2>Un interlocuteur unique dès votre première visite</h2>
+    <p>Notre équipe assure un suivi individualisé des admissions et accompagne les familles dans les démarches administratives.</p>
+    <a class="button" href="/contact">Échanger avec nous</a>
+  </div>
+</section>
